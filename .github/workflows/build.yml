@@ -18,7 +18,7 @@ jobs:
       - name: Find project
         run: find . -name "pyproject.toml" -not -path "./.github/*"
       - name: Build APK
-        run: cd Kin && briefcase build android --no-input
+        run: cd kin && briefcase build android --no-input
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
