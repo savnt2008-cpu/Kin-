@@ -697,5 +697,3 @@ def main():
     return KinApp("Kin", "org.savant.kin")
 
 
-if __name__ == "__main__":
-    main().main_loop()
