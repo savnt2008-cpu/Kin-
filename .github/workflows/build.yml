@@ -34,9 +34,11 @@ jobs:
           4
           EOF
 
-      - name: Build APK
-        run: briefcase build android --no-input
-
+      -  name: Build APK
+        run: |
+          ls -la
+          find . -name "pyproject.toml"
+          briefcase build android --no-input
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
