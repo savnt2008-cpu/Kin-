@@ -34,11 +34,10 @@ jobs:
 
       - name: Build APK
         run: |
-          cd Kin
           briefcase build android --no-input
 
       - name: Upload APK
         uses: actions/upload-artifact@v4 
         with:
           name: Kin-APK
-          path: Kin/build/Kin/android/gradle/app/build/outputs/apk/debug/app-debug.apk
+          path: **/app-debug.apk
