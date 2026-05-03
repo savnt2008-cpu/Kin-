@@ -15,6 +15,8 @@ jobs:
         run: pip install briefcase
       - name: Create Kin project
         run: printf 'Kin\nkin\norg.savant\nKin\nKin Assistant\nSavant\nsavnt@kin.app\nhttps://kin.app\n1\n1\n' | briefcase new
+      - name: Copy Kin app code
+        run: cp app.py kin/src/kin/app.py
       - name: Build APK
         run: cd kin && briefcase build android --no-input
       - name: Upload APK
