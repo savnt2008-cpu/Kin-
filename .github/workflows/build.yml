@@ -2,12 +2,14 @@ name: Build Kin APK
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,11 +35,10 @@ jobs:
           EOF
 
       - name: Build APK
-        run: |
-          briefcase build android --no-input
+        run: briefcase build android --no-input
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4 
+        uses: actions/upload-artifact@v4
         with:
           name: Kin-APK
-          path: **/app-debug.apk
+          path: Kin/build/Kin/android/gradle/app/build/outputs/apk/debug/app-debug.apk          
